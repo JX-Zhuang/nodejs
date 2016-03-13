@@ -7,7 +7,7 @@
 5.进入启动命令：node myapp/bin/www
 6.项目基本结构如下
 
-|----myap
+|----myapp
 |	  |----bin
 |	  |    |----www(启动文件)
 |	  |
