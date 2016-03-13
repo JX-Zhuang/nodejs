@@ -1,0 +1,45 @@
+<!--后台 id="news-contanier" 里面的内容-->
+<% if (newstype==undefined) { %>
+    <p>新闻后台管理系统</p>
+<% } else { %>
+    <% if (news=="") { %>
+        <p>没有关于&nbsp;&nbsp;<%= newstype %>&nbsp;&nbsp;的新闻</p>
+    <% }else if(news.err) { %>
+        <p>操作有误，请重新操作</p>
+    <% } else {%>
+        <% for ( var index =news.length-1;index>=0;index--) {%>
+            <div class="news-box">
+                <form>
+                    <p>新闻ID:<%= news[index].id %></p>
+                    <p>
+                        <label>新闻类别</label>
+                        <select class="form-control" readonly>
+                        <% include backstageSelect %>
+                        </select>  
+                    </p>
+                    <p>
+                        <label>新闻标题</label>
+                        <input type="text" value="<%= news[index].newstitle%>" readonly>
+                    </p> 
+                    <p>
+                        <label>新闻图片路径</label>
+                        <input type="text" value="<%= news[index].newsimg %>" readonly>
+                    </p> 
+                    <p>
+                        <label>新闻内容</label>
+                         <textarea readonly><%= news[index].newscontent %></textarea>
+                    </p>
+                    <p>
+                        <label>新闻时间</label>
+                        <% include newstimeBackstage %>
+                    </p>
+                    <p>操作
+                        <button class="saveBtn">保存</button>
+                        <button class="updateBtn">修改</button>
+                        <button class="delBtn">删除</button>
+                    </p>
+                </form>
+            </div>
+        <% } %>
+    <% } %>
+<% } %>

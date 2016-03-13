@@ -1,0 +1,21 @@
+<!-- 手机页面 id="news-container" 里面的内容 -->
+<% if (news.length!=0) { %>
+    <% if (news.err) { %>
+        <p>操作有误，请重新操作</p>
+    <% } else { %>
+        <% for (var index = news.length - 1; index >= 0; index--) { %>
+            <div class="row">
+                <div class="col-xs-5">
+                    <img src="<%= news[index].newsimg %>" class="img-responsive">
+                    <span class="newsTime"><% include newstimeMobile %></span>
+                </div>
+                <div class="col-xs-7">
+                    <p class="newsTitle"><%= news[index].newstitle %></p>
+                    <p class="newsContent"><%= news[index].newscontent %></p>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+<% } else { %>
+        <p>没有这类新闻</p>
+<% } %>

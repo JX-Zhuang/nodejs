@@ -1,0 +1,108 @@
+<% include header %>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/backstage/style.css">
+    <script src="../laydate/laydate.js"></script>
+</head>
+<body>
+    <!--顶部nav-->
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" id="my-nav">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">新闻系统管理后台</a>
+            </div>
+        </div>
+    </nav>
+    <!--tab-->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#newsindex" aria-controls="home" role="tab" data-toggle="tab" id="newsindex-btn">新闻首页</a></li>
+        <li role="presentation"><a href="#insert" aria-controls="profile" role="tab" data-toggle="tab">增加</a></li>
+        <li role="presentation"><a href="#search" aria-controls="messages" role="tab" data-toggle="tab" id="newsseach-btn">查询</a></li>
+    </ul>
+    <!--tab内容-->
+    <div class="tab-content">
+        <!--新闻首页-->
+        <div role="tabpanel" class="tab-pane active" id="newsindex">
+            <div class="container table-responsive">
+                <form>
+                     <div class="form-group">
+                        <label for="newstitle">新闻类别</label>
+                        <select class="form-control" id="newstypesearch" name="newstypesearch">
+                            <% include backstageSelect %>
+                        </select>
+                    </div>
+                    <button id="newstype-search-btn">查询</button>  
+                </form>  
+                <div id="news-contanier"> 
+                    <% include backstage_news-contanier %>
+                </div>
+            </div>
+        </div>
+        <!--增加新闻内容-->
+        <div role="tabpanel" class="tab-pane" id="insert">
+            <div class="container table-responsive">
+            <div class="news-box">
+                <form>
+                    <p>
+                        <label for="newstype">新闻类别</label>
+                        <select id="newstype" class="form-control" name="newstype">
+                            <% for(var i=0;i<type.length;i++) {%>
+                                <option><%= type[i] %></option>
+                            <% } %>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="newstitle">新闻标题</label>
+                        <input type="text" placeholder="新闻标题" id="newstitle" name="newstitle">
+                    </p>
+                    <p>
+                        <label for="newsimg">新闻图片路径</label>
+                        <input type="text" placeholder="新闻图片路径" id="newsimg" name="newsimg">
+                    </p>
+                    <p>
+                        <label for="newscontent">新闻内容</label>
+                        <textarea  id="newscontent" name="newscontent"></textarea>
+                    </p>
+                    <p>
+                        <label for="newstime">新闻时间</label>
+                        <input type="text" id="newstime" class="laydate-icon" onclick="laydate()"  name="newstime">
+                    </p>
+                    <p>
+                        <button type="submit" id="insert-btn">增加</button>
+                        <button type="reset" >重置</button>
+                    </p>
+                </form>
+            </div>
+            </div>
+            
+        </div>
+        <div role="tabpanel" class="tab-pane" id="search">
+            <div class="container">
+                <form>
+                    <div class="form-group">
+                        <label for="search-news">请输入查询新闻的ID</label>
+                        <input type="type" class="form-control" id="search-news" name="search-news" placeholder="新闻ID">
+                    </div>
+                    <button type="submit" id="search-news-btn">查询</button>
+                    <button type="reset" >重置</button>
+                </form>                    
+                <div id="search-news-contanier">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../javascripts/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../javascripts/backstage/index.js"></script>
+    <!--日历控件-->
+    <script>
+    ;
+    ! function() {
+        laydate({
+            elem: '#newstime'
+        })
+
+    }();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+<% var time = new Date(news[index].addtime); %>
+<% var month; %>
+<% var date; %>
+<% if (time.getMonth() + 1 < 10) { %>
+<% month = "0" + (time.getMonth() + 1); %>
+<% } else { %>
+<% month = time.getMonth() + 1; %>
+<% } %>
+<% if (time.getDate() < 10) { %>
+<% date = "0" + time.getDate(); %>
+<%  } else { %>
+<%  date = time.getDate(); %>
+<% } %>
+<%= time.getFullYear() + '-' + month + '-' + date %>

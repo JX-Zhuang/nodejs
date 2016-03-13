@@ -1,0 +1,63 @@
+<!-- 新闻首页<header></header>里面的内容 -->
+<div class="row header-logo">
+    <% for(var i=0;i<=3;i++) { %>
+        <span></span>
+    <% } %>
+</div>
+<hr class="divider">
+<div class="row">
+    <% for(var i=0;i<type.length-5;i++) { %>
+        <div class="col-xs-2 news-btn" >
+            <% if(newstype==type[i]){ %>
+                <span class="underline">
+                    <a href="../newsmobile/<%= type[i] %>">
+                        <%= type[i] %>
+                    </a>
+                </span>
+            <% } else{ %>
+                <span>
+                    <a href="../newsmobile/<%= type[i] %>">
+                        <%= type[i] %>
+                    </a>
+                </span>
+            <% } %>
+        </div>
+    <% } %>
+</div>
+<div class="row">
+    <% for(var i=6;i<type.length;i++) { %>
+        <% if(i==8) {%>
+            <div class="col-xs-4 news-btn" >
+                <% if(newstype==type[i]){ %>
+                    <span class="underline">
+                        <a href="../newsmobile/<%= type[i] %>">
+                            <%= type[i] %>
+                        </a>
+                    </span>
+                <% } else{ %>
+                    <span>
+                        <a href="../newsmobile/<%= type[i] %>">
+                            <%= type[i] %>
+                        </a>
+                    </span>
+                <% } %>
+                </div>
+        <% }else{ %>
+            <div class="col-xs-2 news-btn" >
+                <% if(newstype==type[i]){ %>
+                    <span class="underline">
+                        <a href="../newsmobile/<%= type[i] %>">
+                            <%= type[i] %>
+                        </a>
+                    </span>
+                <% } else{ %>
+                    <span>
+                        <a href="../newsmobile/<%= type[i] %>">
+                            <%= type[i] %>
+                        </a>
+                    </span>
+                <% } %>
+            </div>
+        <% } %>
+    <% } %>
+</div>

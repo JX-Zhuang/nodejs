@@ -1,0 +1,8 @@
+<!--后台下拉菜单-->
+<% for(var i=0;i<type.length;i++) {%>
+	<% if (type[i]==newstype) {%>
+		<option value="<%= type[i] %>" selected="selected"><%= type[i] %></option>
+	<% } else{%>
+		<option value="<%= type[i] %>" ><%= type[i] %></option>
+    <% } %>
+<% } %>
